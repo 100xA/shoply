@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:shoply/core/config/supabase_config.dart';
+import 'package:shoply/core/config/env_config.dart';
 import 'package:shoply/core/theme/app_theme.dart';
 import 'package:shoply/core/widgets/main_screen.dart';
 import 'package:shoply/features/auth/presentation/screens/login_screen.dart';
@@ -12,6 +13,9 @@ import 'package:shoply/features/home/presentation/screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+  // Load environment variables
+  await EnvConfig.load();
 
   // Initialize Supabase
   await SupabaseConfig.initialize();
