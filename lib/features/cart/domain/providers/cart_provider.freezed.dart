@@ -32,8 +32,6 @@ abstract class $CartItemCopyWith<$Res> {
       _$CartItemCopyWithImpl<$Res, CartItem>;
   @useResult
   $Res call({Product product, int quantity});
-
-  $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc
@@ -65,16 +63,6 @@ class _$CartItemCopyWithImpl<$Res, $Val extends CartItem>
               as int,
     ) as $Val);
   }
-
-  /// Create a copy of CartItem
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $ProductCopyWith<$Res> get product {
-    return $ProductCopyWith<$Res>(_value.product, (value) {
-      return _then(_value.copyWith(product: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
@@ -86,9 +74,6 @@ abstract class _$$CartItemImplCopyWith<$Res>
   @override
   @useResult
   $Res call({Product product, int quantity});
-
-  @override
-  $ProductCopyWith<$Res> get product;
 }
 
 /// @nodoc

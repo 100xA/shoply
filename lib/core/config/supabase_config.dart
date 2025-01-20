@@ -6,13 +6,13 @@ class SupabaseConfig {
     await Supabase.initialize(
       url: EnvConfig.supabaseUrl,
       anonKey: EnvConfig.supabaseAnonKey,
-      debug: false, // Set to true for development
+      debug: true, // Set to true for development
     );
   }
 
   static SupabaseClient get client => Supabase.instance.client;
-  
+
   static GoTrueClient get auth => client.auth;
-  
+
   static SupabaseStorageClient get storage => client.storage;
 }

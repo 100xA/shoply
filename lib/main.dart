@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:shoply/core/config/supabase_config.dart';
 import 'package:shoply/core/config/env_config.dart';
+import 'package:shoply/core/config/supabase_config.dart';
 import 'package:shoply/core/theme/app_theme.dart';
 import 'package:shoply/core/widgets/main_screen.dart';
 import 'package:shoply/features/auth/presentation/screens/login_screen.dart';
@@ -10,15 +10,20 @@ import 'package:shoply/features/auth/presentation/screens/registration_screen.da
 import 'package:shoply/features/auth/presentation/screens/splash_screen.dart';
 import 'package:shoply/features/flash_deals/presentation/screens/flash_deals_screen.dart';
 import 'package:shoply/features/home/presentation/screens/home_screen.dart';
+import 'package:shoply/features/product/data/repositories/hive_product_repository.dart';
+import 'package:shoply/features/product/presentation/screens/products_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
+
   // Load environment variables
   await EnvConfig.load();
 
-  // Initialize Supabase
   await SupabaseConfig.initialize();
+
+  // Initialize Hive and load sample data
+  final productRepository = HiveProductRepository();
+  await productRepository.initialize();
 
   runApp(
     const ProviderScope(
@@ -44,10 +49,10 @@ class MyApp extends ConsumerWidget {
 }
 
 final _router = GoRouter(
-  initialLocation: '/',
+  initialLocation: '/splash',
   routes: [
     GoRoute(
-      path: '/',
+      path: '/splash',
       builder: (context, state) => const SplashScreen(),
     ),
     // Auth routes
@@ -67,23 +72,13 @@ final _router = GoRouter(
           path: '/home',
           builder: (context, state) => const HomeScreen(),
         ),
-
-        /*
-        GoRoute(
-          path: '/products',
-          builder: (context, state) => const ProductsScreen(),
-        ),
-        GoRoute(
-          path: '/cart',
-          builder: (context, state) => const CartScreen(),
-        ),
-        GoRoute(
-          path: '/profile',
-          builder: (context, state) => const ProfileScreen(),
-        ),*/
         GoRoute(
           path: '/flash-deals',
           builder: (context, state) => const FlashDealsScreen(),
+        ),
+        GoRoute(
+          path: '/products',
+          builder: (context, state) => const ProductsScreen(),
         ),
       ],
     ),

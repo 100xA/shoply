@@ -21,8 +21,7 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
     
     if (mounted) {
-      // TODO: Check auth state and navigate accordingly
-      context.go('/login');
+      context.go('/home');
     }
   }
 
@@ -33,8 +32,9 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // TODO: Add app logo
-            const FlutterLogo(size: 100),
+            const FlutterLogo(
+              size: 120,
+            ),
             const SizedBox(height: 24),
             const CircularProgressIndicator(),
             const SizedBox(height: 24),

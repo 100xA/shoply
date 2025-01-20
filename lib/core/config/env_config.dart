@@ -5,9 +5,7 @@ class EnvConfig {
 
   static String get supabaseAnonKey => dotenv.env['SUPABASE_ANON_KEY'] ?? '';
 
-  static String get stripePublishableKey => dotenv.env['STRIPE_PUBLISHABLE_KEY'] ?? '';
-
   static Future<void> load() async {
-    await dotenv.load(fileName: '.env');
+    await dotenv.load(fileName: ".env");
   }
 }
