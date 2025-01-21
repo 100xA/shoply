@@ -1,0 +1,50 @@
+{
+    "appTitle": "Shoply",
+    "@appTitle": {
+        "description": "The title of the application"
+    },
+    "homeScreenTitle": "Home",
+    "@homeScreenTitle": {
+        "description": "Title for the home screen"
+    },
+    "productsScreenTitle": "Products",
+    "@productsScreenTitle": {
+        "description": "Title for the products screen"
+    },
+    "flashDealsScreenTitle": "Flash Deals",
+    "@flashDealsScreenTitle": {
+        "description": "Title for the flash deals screen"
+    },
+    "loginScreenTitle": "Login",
+    "@loginScreenTitle": {
+        "description": "Title for the login screen"
+    },
+    "registrationScreenTitle": "Register",
+    "@registrationScreenTitle": {
+        "description": "Title for the registration screen"
+    },
+    "emailLabel": "Email",
+    "@emailLabel": {
+        "description": "Label for email input field"
+    },
+    "passwordLabel": "Password",
+    "@passwordLabel": {
+        "description": "Label for password input field"
+    },
+    "loginButton": "Login",
+    "@loginButton": {
+        "description": "Text for login button"
+    },
+    "registerButton": "Register",
+    "@registerButton": {
+        "description": "Text for register button"
+    },
+    "addToCartButton": "Add to Cart",
+    "@addToCartButton": {
+        "description": "Text for add to cart button"
+    },
+    "cartScreenTitle": "Shopping Cart",
+    "@cartScreenTitle": {
+        "description": "Title for the shopping cart screen"
+    }
+}

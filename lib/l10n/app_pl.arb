@@ -1,0 +1,14 @@
+{
+    "appTitle": "Shoply",
+    "homeScreenTitle": "Strona główna",
+    "productsScreenTitle": "Produkty",
+    "flashDealsScreenTitle": "Promocje",
+    "loginScreenTitle": "Logowanie",
+    "registrationScreenTitle": "Rejestracja",
+    "emailLabel": "Email",
+    "passwordLabel": "Hasło",
+    "loginButton": "Zaloguj",
+    "registerButton": "Zarejestruj",
+    "addToCartButton": "Dodaj do koszyka",
+    "cartScreenTitle": "Koszyk"
+}

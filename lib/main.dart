@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:shoply/core/config/env_config.dart';
 import 'package:shoply/core/config/supabase_config.dart';
 import 'package:shoply/core/services/logging_service.dart';
@@ -13,6 +15,7 @@ import 'package:shoply/features/flash_deals/presentation/screens/flash_deals_scr
 import 'package:shoply/features/home/presentation/screens/home_screen.dart';
 import 'package:shoply/features/product/data/repositories/hive_product_repository.dart';
 import 'package:shoply/features/product/presentation/screens/products_screen.dart';
+import 'package:shoply/core/providers/locale_provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -45,6 +48,8 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final locale = ref.watch(localeProvider);
+    
     return MaterialApp.router(
       title: 'Shoply',
       theme: AppTheme.lightTheme,
@@ -52,6 +57,18 @@ class MyApp extends ConsumerWidget {
       themeMode: ThemeMode.system,
       routerConfig: _router,
       debugShowCheckedModeBanner: false,
+      locale: locale,
+      // Add localization support
+      localizationsDelegates: const [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [
+        Locale('en'), // English
+        Locale('pl'), // Polish
+      ],
     );
   }
 }
